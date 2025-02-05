@@ -1,0 +1,10 @@
+.header {
+	background-color: lightcoral;
+	padding: 20px;
+}
+
+.menu {
+	display: flex;
+	justify-content: space-around;
+	list-style: none;
+}
