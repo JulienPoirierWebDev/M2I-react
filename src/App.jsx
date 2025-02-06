@@ -1,13 +1,11 @@
-import result from './result';
+import ActorsList from './components/searchActors/ActorsList';
 
-//nom du composant avec une MAJ
 function App() {
-	//Partie logique
-
-	console.log(result);
-
-	// JSX qui sera transformé en HTML
-	return <></>;
+	return (
+		<>
+			<ActorsList />
+		</>
+	);
 }
 
 export default App;
