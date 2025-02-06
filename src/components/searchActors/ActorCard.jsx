@@ -1,32 +1,30 @@
-import { act } from 'react';
-
 /* eslint-disable react/prop-types */
 function ActorCard({ actor }) {
 	return (
-		<div className='card'>
+		<div className='actor-card'>
 			<h2>{actor.name}</h2>
-			<p>{actor.known_for_department}</p>
-
+			<p>Popularité: {actor.popularity}</p>
 			{actor.profile_path ? (
 				<img
-					src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`}
+					src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}
 					alt={actor.name}
 				/>
 			) : null}
-
-			<div>
-				{actor.known_for.map((oneMovie) => {
-					return (
-						<div className='movie' key={oneMovie.id}>
-							<p>{oneMovie.title}</p>
+			<h3>Films connus:</h3>
+			<ul>
+				{actor.known_for.map((movie) => (
+					<li key={movie.id}>
+						<h4>{movie.title}</h4>
+						{movie.poster_path ? (
 							<img
-								src={`https://image.tmdb.org/t/p/w500/${oneMovie.poster_path}`}
-								alt={oneMovie.title}
+								src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+								alt={movie.title}
 							/>
-						</div>
-					);
-				})}
-			</div>
+						) : null}
+						<p>Date de sortie: {movie.release_date}</p>
+					</li>
+				))}
+			</ul>
 		</div>
 	);
 }
