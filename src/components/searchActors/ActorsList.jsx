@@ -57,19 +57,21 @@ function ActorsList() {
 
 			<p>Vous recherchez : {personne}</p>
 
-			{details ? <Details details={details} /> : null}
-
-			<div className='actors-container'>
-				{result.map((oneActor) => {
-					return (
-						<ActorCard
-							key={oneActor.id}
-							actor={oneActor}
-							handleGetMoreDetails={handleGetMoreDetails}
-						/>
-					);
-				})}
-			</div>
+			{details ? (
+				<Details details={details} setDetails={setDetails} />
+			) : (
+				<div className='actors-container'>
+					{result.map((oneActor) => {
+						return (
+							<ActorCard
+								key={oneActor.id}
+								actor={oneActor}
+								handleGetMoreDetails={handleGetMoreDetails}
+							/>
+						);
+					})}
+				</div>
+			)}
 		</div>
 	);
 }

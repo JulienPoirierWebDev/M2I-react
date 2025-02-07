@@ -1,9 +1,16 @@
 /* eslint-disable react/prop-types */
-function Details({ details }) {
+function Details({ details, setDetails }) {
 	console.log('RENDER DETAILS');
 
 	return (
-		<div>
+		<div className='details'>
+			<button
+				onClick={() => {
+					setDetails(null);
+				}}
+			>
+				X
+			</button>
 			Voici les infos sur le film en question :
 			<div>
 				<h3>{details.title}</h3>
